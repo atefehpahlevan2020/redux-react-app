@@ -19,7 +19,7 @@ const ProductDetails = ({addProduct}) => {
   return (
     <>
         <h1>Add New Product</h1>
-        <form onSubmit={(event) => save(event)}>
+        <form method='Post' onSubmit={(event) => save(event)}>
             <div className='form-group'>
                 <label>Product Id:</label>
                 <input type="number" className='form-control' name='productId'/>

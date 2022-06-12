@@ -1,8 +1,3 @@
-//getAll
-//getById
-//add
-//remove
-//edit
 import {ProductGetAll,ProductGetById,ProductAdd,ProductRemove,ProductEdit} from './actionTypes';
 
 export const getAll = () => ({

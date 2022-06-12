@@ -11,21 +11,21 @@ class ProductList extends Component {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
+                            <th>ProductName</th>
                             <th>Price</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            this.props.products.map(item =>
+                            (this.props.products || []).map((item) =>
                                 <tr key={item.id}>
                                     <td>{item.id}</td>
                                     <td>{item.productName}</td>
                                     <td>{item.price}</td>
                                     <td>
                                         <button className='btn btn-danger btn-sm' 
-                                                            onClick={() => this.props.removeProduct(item.id)}>Delete</button>
+                                            onClick={() => this.props.removeProduct(item.id)}>Delete</button>
                                     </td>
                                 </tr>
                             )
@@ -36,6 +36,8 @@ class ProductList extends Component {
         )
     }
 }
+
+
 
 const mapStateToProps = (state) => ({
     products: state.productState.items
