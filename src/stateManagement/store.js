@@ -3,6 +3,8 @@ import productReducer from './reducers/productReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import userThunkReducer from './reducers/userThunkReducer';
 
 
 const persistConfig = {
@@ -12,16 +14,18 @@ const persistConfig = {
   // whitelist: ['productState'],
 }
 
-const persistedReducer = persistReducer(persistConfig, productReducer);
+const persistedReducer = persistReducer(persistConfig, productReducer,userThunkReducer);
 
 
 
 export const store = configureStore({
   reducer: {
     productState : persistedReducer,
+    userThunkState : userThunkReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
+      thunk,
       serializableCheck: false,
       immutableCheck: false
     }).concat(logger)

@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from './components/ProductList';
 import './App.css';
 import ProductDetails from './components/ProductDetails';
+import UserListWithThunk from './components/UserListWithThunk';
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
         </div>
         <div className='col'>
           <ProductDetails/>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col'>
+          <UserListWithThunk/>
         </div>
       </div>
     </div>
