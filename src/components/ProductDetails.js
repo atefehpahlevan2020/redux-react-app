@@ -1,8 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {add} from '../stateManagement/actions/productActions';
+import {ThemeContext} from '../App';
 
 const ProductDetails = ({addProduct}) => {
+    const value = React.useContext(ThemeContext)
+
     const save = (event) => {
         event.preventDefault();
         const form = new FormData(event.target);
@@ -18,7 +21,7 @@ const ProductDetails = ({addProduct}) => {
     };
   return (
     <>
-        <h1>Add New Product</h1>
+        <h1 style={{backgroundColor:value}}>Add New Product</h1>
         <form method='Post' onSubmit={(event) => save(event)}>
             <div className='form-group'>
                 <label>Product Id:</label>
