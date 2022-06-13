@@ -2,16 +2,15 @@ import { configureStore } from '@reduxjs/toolkit';
 import productReducer from './reducers/productReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import logger from 'redux-logger';
 
 
 const persistConfig = {
   key: 'root',
   storage,
+  // blacklist: ['productState'],
+  // whitelist: ['productState'],
 }
-
-// export const rootReducer = combineReducers({
-//   productState : productReducer,
-// });
 
 const persistedReducer = persistReducer(persistConfig, productReducer);
 
@@ -25,7 +24,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
       immutableCheck: false
-    })
+    }).concat(logger)
 })
 
 
