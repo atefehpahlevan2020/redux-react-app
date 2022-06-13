@@ -3,6 +3,7 @@ import ProductList from './components/ProductList';
 import './App.css';
 import ProductDetails from './components/ProductDetails';
 import UserListWithThunk from './components/UserListWithThunk';
+// import CommentList from './components/CommentList';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
         </div>
       </div>
       <div className='row'>
-        <div className='col'>
+        <div className='col mb-5'>
           <UserListWithThunk/>
+          {/* <CommentList/> */}
         </div>
       </div>
     </div>
